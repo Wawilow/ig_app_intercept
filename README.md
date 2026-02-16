@@ -9,3 +9,17 @@ Facebook uses it's own close-source Tibon http library for all of it requests
 
 I run Frida's with .js script and log the headers
 
+```bash
+adb push frida-server /data/local/tmp/
+adb shell "chmod 755 /data/local/tmp/frida-server"
+
+adb shell "/data/local/tmp/frida-server &"
+```
+
+```bash
+frida-ps -U
+
+adb shell am start -n com.instagram.android/com.instagram.mainactivity.InstagramMainActivity
+frida -U -n Instagram -l instagram_monitor.js
+```
+
